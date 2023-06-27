@@ -35,7 +35,9 @@ def is_premiere_running():
     :return: (bool) process is running, (int) pid
     """
     is_running, pid = exe_is_running(PREMIERE_PROCESS_NAME)
+    print("Trying normal APP")
     if is_running: return is_running, pid
+    print("Trying beta APP")
     return exe_is_running(PREMIERE_PROCESS_NAME_BETA)
 
 
