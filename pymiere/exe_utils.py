@@ -24,7 +24,7 @@ else:
 
 CREATE_NO_WINDOW = 0x08000000
 PREMIERE_PROCESS_NAME = "adobe premiere pro.exe" if WINDOWS_SYSTEM else "Adobe Premiere Pro"
-PREMIERE_PROCESS_NAME_BETA = "Adobe Premiere Pro (Beta)"
+PREMIERE_PROCESS_NAME_BETA = "adobe premiere pro (beta).exe" if WINDOWS_SYSTEM else "Adobe Premiere Pro (Beta)"
 CEPPANEL_PROCESS_NAME = "CEPHtmlEngine.exe" if WINDOWS_SYSTEM else "CEPHtmlEngine"
 
 
@@ -129,7 +129,7 @@ def _get_pids_from_name(process_name):
         # parse output lines
         lines = output.strip().splitlines()
         print(f"DEBUG: {lines}")
-        matching_lines = [l for l in lines if l.lower().startswith(process_name.lower())]
+        matching_lines = [l for l in lines if process_name.lower().startswith(l.lower())]
         print(f"DEBUG: {matching_lines}")
         found = [int(re.findall("   ([0-9]{1,6}) [a-zA-Z]", l)[0]) for l in matching_lines]
         return found
