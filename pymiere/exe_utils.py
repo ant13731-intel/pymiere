@@ -24,7 +24,7 @@ else:
 
 CREATE_NO_WINDOW = 0x08000000
 PREMIERE_PROCESS_NAME = "adobe premiere pro.exe" if WINDOWS_SYSTEM else "Adobe Premiere Pro"
-PREMIERE_PROCESS_NAME_BETA = "adobe premiere pro (beta).exe" if WINDOWS_SYSTEM else "Adobe Premiere Pro (Beta)"
+PREMIERE_PROCESS_NAME_BETA = "Adobe Premiere Pro (Beta)"
 CEPPANEL_PROCESS_NAME = "CEPHtmlEngine.exe" if WINDOWS_SYSTEM else "CEPHtmlEngine"
 
 
