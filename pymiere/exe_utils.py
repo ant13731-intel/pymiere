@@ -34,7 +34,9 @@ def is_premiere_running():
 
     :return: (bool) process is running, (int) pid
     """
-    return exe_is_running(PREMIERE_PROCESS_NAME) or exe_is_running(PREMIERE_PROCESS_NAME_BETA)
+    is_running, pid = exe_is_running(PREMIERE_PROCESS_NAME)
+    if is_running: return is_running, pid
+    return exe_is_running(PREMIERE_PROCESS_NAME_BETA)
 
 
 def start_premiere(use_bat=False):
