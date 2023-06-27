@@ -130,7 +130,9 @@ def _get_pids_from_name(process_name):
         lines = output.strip().splitlines()
         print(f"DEBUG: {lines}")
         matching_lines = [l for l in lines if l.lower().startswith(process_name.lower())]
-        return [int(re.findall("   ([0-9]{1,6}) [a-zA-Z]", l)[0]) for l in matching_lines]
+        print(f"DEBUG: {matching_lines}")
+        found = [int(re.findall("   ([0-9]{1,6}) [a-zA-Z]", l)[0]) for l in matching_lines]
+        return found
     else:
         # use pgrep UNIX command to filter processes by name
         try:
