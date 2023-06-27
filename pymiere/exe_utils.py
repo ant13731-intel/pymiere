@@ -128,6 +128,7 @@ def _get_pids_from_name(process_name):
             output = output.decode(encoding="437")  # encoding for windows console
         # parse output lines
         lines = output.strip().splitlines()
+        print(f"DEBUG: {lines}")
         matching_lines = [l for l in lines if l.lower().startswith(process_name.lower())]
         return [int(re.findall("   ([0-9]{1,6}) [a-zA-Z]", l)[0]) for l in matching_lines]
     else:
