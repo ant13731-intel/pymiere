@@ -35,8 +35,10 @@ def is_premiere_running():
     :return: (bool) process is running, (int) pid
     """
     # NOTE changed from normal pymiere
+    print("Checking for Adobe Premiere Pro.exe")
     is_running, pid = exe_is_running(PREMIERE_PROCESS_NAME)
     if is_running: return is_running, pid
+    print("Checking for Adobe Premiere Pro (Beta).exe")
     return exe_is_running(PREMIERE_PROCESS_NAME_BETA)
 
 
@@ -129,6 +131,7 @@ def _get_pids_from_name(process_name):
         lines = output.strip().splitlines()
         # NOTE changed from normal pymiere
         matching_lines = [l for l in lines if l.lower().startswith(process_name.replace(".exe",'').lower())]
+        print(f"DEBUG: Checking for running instance of {process_name}:\n{matching_lines}")
         return [int(re.findall("   ([0-9]{1,6}) [a-zA-Z]", l)[0]) for l in matching_lines]
     else:
         # use pgrep UNIX command to filter processes by name
